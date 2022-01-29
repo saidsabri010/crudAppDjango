@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+{% block body %}
+    {% for p in post %}
+<form class="form-group" action="{% url 'edit' p.id %}" method="POST">
+{% csrf_token %}
+  <input type="hidden" name="id" value="{{ p.id }}">
+    <label>Title</label>
+    <input name="title" placeholder="Title" value="{{ p.title }}">
+    <label>Category : </label>
+    <select name="category">
+        {% for category in categories %}
+        <option value="{{ category.name }}">{{ category.name }}</option>
+        {% endfor %}
+    </select>
+    <label>Body : </label>
+    <textarea name="body">{{ p.body }}</textarea>
+<button type="submit" class="btn btn-primary btn-sm">Edit</button>
+</form>
+{% endfor %}
+{% endblock %}

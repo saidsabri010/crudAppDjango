@@ -1,0 +1,9 @@
+{% extends 'index.html' %}
+{% block body %}
+<form class="form-group" action="{% url 'add' %}" method="post">
+{% csrf_token %}
+  {{ form }}
+<button type="submit">submit</button>
+</form>
+
+{% endblock %}
