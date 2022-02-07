@@ -7,9 +7,9 @@
     <label>Title</label>
     <input name="title" placeholder="Title" value="{{ p.title }}">
     <label>Category : </label>
-    <select name="category">
+    <select class="select2-selection--single" name="category" id="category">
         {% for category in categories %}
-        <option value="{{ category.name }}">{{ category.name }}</option>
+        <option value="{{ category.id }}">{{ category.name }}</option>
         {% endfor %}
     </select>
     <label>Body : </label>

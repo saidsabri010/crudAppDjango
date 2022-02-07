@@ -9,7 +9,7 @@ CATEGORY_CHOICES = (
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=25, choices=CATEGORY_CHOICES, default="Choose one :")
+    name = models.CharField(max_length=26, choices=CATEGORY_CHOICES, default="Choose one :")
 
     def __str__(self):
         return self.name

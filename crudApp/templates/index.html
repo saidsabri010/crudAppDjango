@@ -21,6 +21,13 @@
     <li><a href="{% url 'index' %}">Services</a></li>
     <li><a href="{% url 'index' %}">contact us</a></li>
     <li><a href="{% url 'index' %}">Home</a></li>
+    <li style="float: left" >
+    <form action="{% url 'search' %}">
+        {% csrf_token %}
+            <input name="search" placeholder="Title">
+        <button class="btn btn-outline-success" type="submit" >Search</button>
+    </form>
+    </li>
 </ul>
 </nav>
 <header>
@@ -43,11 +50,12 @@
             <td>{{ d.body }}</td>
             <td>{{ d.created_at }}</td>
             <td><a class="btn btn-primary" role="button" href="{% url 'showEdit' d.id %}">Edit</a></td>
-            <td><a class="btn btn-danger" onclick="return confirm('Are You Sure To Delete ?')" href="/delete/{{d.id}}" role="button">Delete</a></td>
+            <td><a class="btn btn-danger" onclick="return confirm('Are You Sure To Delete ?')" href="{% url 'delete' d.id %}" role="button">Delete</a></td>
         </tr>
     </tbody>
     </table>
 {% endfor %}
+{{ data2 }}
     {% block body %} {% endblock %}
 </header>
 </body>
